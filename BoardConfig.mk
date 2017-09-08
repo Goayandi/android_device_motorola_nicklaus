@@ -155,6 +155,11 @@ TARGET_LDPRELOAD += libnicklaus.so
 
 # CWM
 TARGET_RECOVERY_FSTAB := device/motorola/nicklaus/rootdir/recovery.fstab
+
+# SensorHAL
+TARGET_SENSORS_DEVICE_API_VERSION := SENSORS_DEVICE_API_VERSION_1_1
+
+# Recovery
 BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP stuff
