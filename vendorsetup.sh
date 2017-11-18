@@ -9,6 +9,9 @@ cd ../..
 cd frameworks/base
 git reset --hard && git clean -f -d
 cd ../..
+cd frameworks/native
+git reset --hard && git clean -f -d
+cd ../..
 cd system/netd
 git reset --hard && git clean -f -d
 cd ../..
@@ -27,4 +30,6 @@ cd ../..
 cd system/core
 patch -p1 < ../../device/motorola/nicklaus/patches/system_core.diff
 cd ../..
-
+cd frameworks/native
+patch -p1 < ../../device/motorola/nicklaus/patches/frameworks_native.diff
+cd ../..
