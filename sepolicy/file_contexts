@@ -73,9 +73,8 @@
 /protect_f(/.*)?         u:object_r:protect_f_data_file:s0
 /protect_s(/.*)?         u:object_r:protect_s_data_file:s0
 /persist(/.*)?         u:object_r:persist_data_file:s0
-/protect_s/properties(/.*)?                                     u:object_r:persist_property_file:s0
 
-# fat on nand image
+#fat on nand image
 /fat(/.*)?  u:object_r:fon_image_data_file:s0
 
 ##########################
@@ -369,7 +368,7 @@
 /sys/kernel/ccci(/.*)? u:object_r:sysfs_ccci:s0
 /sys/mtk_ssw(/.*)? u:object_r:sysfs_ssw:s0
 /sys/bus/platform/drivers/dev_info/dev_info u:object_r:sysfs_devinfo:s0
-/sys/devices/platform/mtk_disp_mgr.0/rgb      u:object_r:livedisplay_sysfs:s0
+/sys/devices/platform/mtk_disp_mgr.0/rgb u:object_r:livedisplay_sysfs:s0
 
 #############################
 # debugfs files
@@ -645,3 +644,4 @@
 /dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/persist           u:object_r:persist_block_device:s0
 /dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/system            u:object_r:system_block_device:s0
 /dev/block/platform/mtk-msdc\.0/[0-9]+\.msdc0/by-name/metadata          u:object_r:metadata_block_device:s0
+

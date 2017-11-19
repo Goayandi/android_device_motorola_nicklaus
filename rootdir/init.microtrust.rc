@@ -86,4 +86,3 @@ service init_thh_service /vendor/bin/init_thh startload
     group system
     disabled
     oneshot
-

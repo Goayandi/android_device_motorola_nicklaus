@@ -79,6 +79,7 @@
 /dev/pvrsrvkm             0666   root       root
 /dev/pvr_sync             0666   root       root
 
+
 /sys/devices/platform/leds-mt65xx/leds/green   delay_on      0664  system   system
 /sys/devices/platform/leds-mt65xx/leds/green   delay_off      0664  system   system
 /sys/devices/platform/leds-mt65xx/leds/red   delay_on      0664  system   system
@@ -121,4 +122,3 @@
 
 # tp test
 /dev/rmi0		  0666   system     system
-
