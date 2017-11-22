@@ -1,6 +1,3 @@
-# inherit from the proprietary version
--include vendor/motorola/nicklaus/BoardConfigVendor.mk
-
 # Architecture
 FORCE_32_BIT := true
 
@@ -40,38 +37,7 @@ TARGET_BOOTLOADER_BOARD_NAME := mt6737m
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
-# Kernel
-BOARD_KERNEL_IMAGE_NAME := zImage-dtb
-TARGET_KERNEL_SOURCE := kernel/motorola/nicklaus
-BOARD_KERNEL_BASE := 0x40000000
-BOARD_KERNEL_PAGESIZE := 2048
-BOARD_RAMDISK_OFFSET := 0x04000000
-BOARD_TAGS_OFFSET := 0xE000000
-ifeq ($(FORCE_32_BIT),true)
-ARCH := arm
-TARGET_KERNEL_ARCH := arm
-TARGET_KERNEL_CONFIG := lineageos_nicklaus_defconfig
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 androidboot.selinux=permissive androidboot.selinux=disabled 
-BOARD_KERNEL_OFFSET := 0x00008000
-else
-TARGET_KERNEL_ARCH := arm64
-BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 androidboot.selinux=permissive androidboot.selinux=disabled 
-BOARD_KERNEL_OFFSET = 0x00080000
-TARGET_USES_64_BIT_BINDER := true
-endif
-BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
-
-# make_ext4fs requires numbers in dec format
-BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2432696320
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 4698144768
-BOARD_CACHEIMAGE_PARTITION_SIZE := 419430400
-BOARD_FLASH_BLOCK_SIZE := 131072
 TARGET_KMODULES := true
-
-# Assert
-TARGET_OTA_ASSERT_DEVICE := Moto E4 Plus,"nicklaus",nicklaus
 
 # Disable memcpy opt (for audio libraries)
 TARGET_CPU_MEMCPY_OPT_DISABLE := true
@@ -81,7 +47,7 @@ BOARD_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 BOARD_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 
 # Graphics
-BOARD_EGL_CFG := /vendor/motorola/nicklaus/vendor/lib/egl/egl.cfg
+BOARD_EGL_CFG := device/motorola/mt6737/configs/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
@@ -106,7 +72,7 @@ BOARD_USES_MTK_AUDIO := true
 
 # CMHW
 BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS := device/motorola/nicklaus/cmhw
+BOARD_HARDWARE_CLASS := device/motorola/mt6737/cmhw
 
 # Fix video autoscaling on old OMX decoders
 TARGET_OMX_LEGACY_RESCALING := true
@@ -115,7 +81,7 @@ TARGET_OMX_LEGACY_RESCALING := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/motorola/nicklaus/ril/
+BOARD_RIL_CLASS := ../../../device/motorola/mt6737/ril/
 
 # GPS
 BOARD_GPS_LIBRARIES :=true
@@ -152,29 +118,8 @@ BOARD_BLUETOOTH_BDROID_HCILP_INCLUDED := 0
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/nicklaus/bluetooth
 
 # Symbols for MediaTek
-TARGET_LDPRELOAD += libnicklaus.so
+TARGET_LDPRELOAD += libmt6737.so
 
-# CWM
-TARGET_RECOVERY_FSTAB := device/motorola/nicklaus/rootdir/recovery.fstab
-BOARD_HAS_NO_SELECT_BUTTON := true
-
-# TWRP stuff
-TW_THEME := portrait_hdpi
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
-TW_NO_REBOOT_BOOTLOADER := true
-TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
-TW_MAX_BRIGHTNESS := 255
-TW_EXCLUDE_SUPERSU := true
-TW_INCLUDE_FB2PNG := true
-TW_NO_CPU_TEMP := true
-TW_REBOOT_BOOTLOADER := true
-TW_REBOOT_RECOVERY := true
-TW_HAS_DOWNLOAD_MODE := true
-TW_EXCLUDE_SUPERSU := true
-TW_USE_TOOLBOX := true
-
-TARGET_SYSTEM_PROP := device/motorola/nicklaus/system.prop
 TARGET_SPECIFIC_HEADER_PATH := device/motorola/nicklaus/include
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
@@ -187,8 +132,8 @@ endif
 
 # Selinux Policy
 BOARD_SEPOLICY_DIRS := \
-       device/motorola/nicklaus/sepolicy
+       device/motorola/mt6737/sepolicy
 
 # Seccomp filter
-BOARD_SECCOMP_POLICY += device/motorola/nicklaus/seccomp
+BOARD_SECCOMP_POLICY += device/motorola/mt6737/seccomp
 

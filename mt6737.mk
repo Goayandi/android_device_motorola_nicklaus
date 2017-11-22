@@ -1,13 +1,8 @@
-LOCAL_PATH := device/motorola/nicklaus
+LOCAL_PATH := device/motorola/mt6737
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-$(call inherit-product-if-exists, vendor/motorola/nicklaus/nicklaus-vendor.mk)
-
-DEVICE_PACKAGE_OVERLAYS += device/motorola/nicklaus/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/motorola/nicklaus/overlay
 
 # Dalvik/HWUI
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-dalvik-heap.mk)
@@ -61,20 +56,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_TAGS += dalvik.gc.type-precise
 
-# root
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/init.project.rc:root/init.project.rc \
-    $(LOCAL_PATH)/rootdir/init.modem.rc:root/init.modem.rc \
-    $(LOCAL_PATH)/rootdir/ueventd.mt6735.rc:root/ueventd.mt6735.rc \
-    $(LOCAL_PATH)/rootdir/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
-    $(LOCAL_PATH)/rootdir/init.mt6735.rc:root/init.mt6735.rc \
-    $(LOCAL_PATH)/rootdir/fstab.mt6735:root/fstab.mt6735 \
-    $(LOCAL_PATH)/rootdir/enableswap.sh:root/enableswap.sh \
-    $(LOCAL_PATH)/rootdir/init.rc:root/init.rc \
-    $(LOCAL_PATH)/rootdir/init.microtrust.rc:root/init.microtrust.rc \
-    $(LOCAL_PATH)/rootdir/init.connectivity.rc:root/init.connectivity.rc \
-    $(LOCAL_PATH)/rootdir/init.mt6735.power.rc:root/init.mt6735.power.rc
-
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -109,10 +90,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    fingerprintd
-
 # FM Radio
 PRODUCT_PACKAGES += \
     FMRadio \
@@ -120,7 +97,7 @@ PRODUCT_PACKAGES += \
 
 # Symbols for MediaTek
 PRODUCT_PACKAGES += \
-    libnicklaus
+    libmt6737
 
 # Power
 PRODUCT_PACKAGES += \
