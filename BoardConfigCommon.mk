@@ -115,12 +115,11 @@ EXTENDED_FONT_FOOTPRINT := true
 # Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_BLUETOOTH_BDROID_HCILP_INCLUDED := 0
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/motorola/nicklaus/bluetooth
 
 # Symbols for MediaTek
 TARGET_LDPRELOAD += libmt6737.so
 
-TARGET_SPECIFIC_HEADER_PATH := device/motorola/nicklaus/include
+TARGET_SPECIFIC_HEADER_PATH := device/motorola/mt6737/include
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 
 ifneq ($(FORCE_32_BIT),yes)
