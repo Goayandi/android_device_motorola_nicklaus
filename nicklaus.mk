@@ -82,6 +82,9 @@ PRODUCT_PACKAGES += \
     libtinycompress \
     libtinymix \
     libtinyxml
+    android.hardware.audio@2.0-impl \
+    android.hardware.audio.effect@2.0-impl \
+    android.hardware.audio@2.0-service
 
 # WiFi
 PRODUCT_PACKAGES += \
@@ -90,7 +93,7 @@ PRODUCT_PACKAGES += \
     libwpa_client \
     wpa_supplicant \
     wpa_supplicant.conf \
-    lib_driver_cmd_mt66xx
+    android.hardware.wifi@1.0-service
 
 # USB
 PRODUCT_PACKAGES += \
@@ -99,7 +102,6 @@ PRODUCT_PACKAGES += \
 
 # Charger
 PRODUCT_PACKAGES += \
-    charger \
     libnl_2 \
     charger_res_images
 
@@ -107,22 +109,88 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0-impl \
+    android.hardware.bluetooth@1.0-service
+
 # Fingerprint
 PRODUCT_PACKAGES += \
-    fingerprintd
+    android.hardware.biometrics.fingerprint@2.1-service
 
-# FM Radio
+# Gatekeeper
 PRODUCT_PACKAGES += \
-    FMRadio \
-    libfmjni
+    android.hardware.gatekeeper@1.0-impl \
+    android.hardware.gatekeeper@1.0-service
 
 # Symbols for MediaTek
 PRODUCT_PACKAGES += \
     libnicklaus
 
+# Camera HAL
+PRODUCT_PACKAGES += \
+    camera.device@1.0-impl \
+    camera.device@3.2-impl \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service
+
 # Power
 PRODUCT_PACKAGES += \
     power.mt6737m
+
+# Vibrator
+PRODUCT_PACKAGES += \
+    android.hardware.vibrator@1.0-impl \
+    android.hardware.vibrator@1.0-service
+     
+# Keymaster 
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-impl
+ 
+# Lights
+PRODUCT_PACKAGES += \
+    lights.mt6737m
+    
+# Sensors 
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0-impl \
+    android.hardware.light@2.0-service \
+    android.hardware.sensors@1.0-impl \
+    android.hardware.sensors@1.0-service \
+    
+# Drm  
+PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0-impl
+     
+# GPS 
+PRODUCT_PACKAGES += \
+    android.hardware.gnss@1.0-impl
+     
+# USB 
+PRODUCT_PACKAGES += \
+    android.hardware.usb@1.0-service
+    
+# Health 
+PRODUCT_PACKAGES += \
+    android.hardware.health@1.0-impl \
+    android.hardware.health@1.0-service
+   
+# Power 
+PRODUCT_PACKAGES += \
+    android.hardware.power@1.0-impl
+   
+# Graphic 
+PRODUCT_PACKAGES += \
+    android.hardware.graphics.allocator@2.0-impl \
+    android.hardware.graphics.allocator@2.0-service \
+    android.hardware.graphics.composer@2.1-impl \
+    android.hardware.graphics.mapper@2.0-impl \
+    android.hardware.renderscript@1.0-impl \
+    android.hardware.memtrack@1.0-imp
+    
+# Omx 
+PRODUCT_PACKAGES += \
+    android.hardware.media.omx@1.0
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
   ro.mount.fs=EXT4 \
@@ -141,6 +209,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.legacyencoder=0
 
+# GPS force mode
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.force.gps.mode=gnss
+
 # RIL
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.kernel.android.checkjni=0
@@ -156,6 +228,10 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 # Keyhandler package
 PRODUCT_PACKAGES += \
     com.cyanogenmod.keyhandler
+
+# HIDL Manifest
+PRODUCT_COPY_FILES += \
+    device/motorola/nicklaus/manifest.xml:system/vendor/manifest.xml
 
 PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
 
