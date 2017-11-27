@@ -104,9 +104,8 @@ TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 # Audio
 BOARD_USES_MTK_AUDIO := true
 
-# CMHW
-BOARD_USES_CYANOGEN_HARDWARE := true
-BOARD_HARDWARE_CLASS := device/motorola/nicklaus/cmhw
+# Lineage Hardware Hooks
+BOARD_HARDWARE_CLASS := device/motorola/nicklaus/lineagehw
 
 # Fix video autoscaling on old OMX decoders
 TARGET_OMX_LEGACY_RESCALING := true
