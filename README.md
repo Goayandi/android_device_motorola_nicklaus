@@ -19,6 +19,7 @@ Camera  | Main 13MP / Front 5MP, autofocus, LED flash
 ### Thanks to:
    * darklord4822 
    * Zormax
+   * M.A.D
    * rmmc & defer 
    * xen0n
    * DeckerSU
