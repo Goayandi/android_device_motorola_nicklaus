@@ -108,7 +108,10 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    libion
+    libion \
+    libgralloc_extra \
+    libgui_ext \
+    libui_ext
 
 # Bluetooth
 PRODUCT_PACKAGES += \
