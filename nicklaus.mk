@@ -109,6 +109,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libion
 
+# Doze
+PRODUCT_PACKAGES += \
+    Doze
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     fingerprintd
